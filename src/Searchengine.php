@@ -10,7 +10,7 @@ class Searchengine{
     
 
     public function __construct() {
-    $this->region = "ae";
+    $this->region = "uae";
     $this->debugmode = false;
 
   }
