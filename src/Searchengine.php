@@ -1,7 +1,7 @@
 <?php
 namespace Safasherinsulaiman\Searchengine;
 
-class searchEngine{
+class Searchengine{
 
     public $region;
     public $debugmode;

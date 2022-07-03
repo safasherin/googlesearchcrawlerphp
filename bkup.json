@@ -1,10 +1,16 @@
 {
     "name": "safasherinsulaiman/searchengine",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Safasherinsulaiman\\Searchengine\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "safasherinsulaiman"
+        }
+    ],
     "require": {}
 }
