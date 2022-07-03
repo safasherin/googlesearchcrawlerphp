@@ -11,7 +11,7 @@ class Searchengine{
 
     public function __construct() {
     $this->region = "ae";
-    $this->debugmode = true;
+    $this->debugmode = false;
 
   }
 
@@ -37,10 +37,27 @@ class Searchengine{
         // $file = "dh50.html";
         @$dom->loadHTMLFile($file);
        }else{
-        @$dom->loadHTMLFile($url);
+        $useragent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36";
+
+        $ch = curl_init();
+
+        // set user agent
+        curl_setopt($ch, CURLOPT_USERAGENT, $useragent);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $content = curl_exec($ch);
+        @$dom->loadHTML($content);
+
+        // @$dom->loadHTMLFile($url);
        }
 
        $dom->preserveWhiteSpace = false;
+      
+
         $xpath = new DomXPath($dom);
         $output = array();
 
