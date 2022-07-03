@@ -1,6 +1,8 @@
 <?php
 namespace Safasherinsulaiman\Searchengine;
-
+use DOMDocument;
+use DOMXPath;
+use ArrayObject;
 class Searchengine{
 
     public $region;
